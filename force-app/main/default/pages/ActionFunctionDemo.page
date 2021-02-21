@@ -1,0 +1,26 @@
+<apex:page controller="picklistcls">
+    <apex:form >
+        <apex:actionFunction name="call" action="{!show}" reRender="ol"/>
+        <apex:selectList value="{!selected}" size="5" multiselect="true" onchange="call()" >
+            <apex:selectOption itemValue="Ind" itemLabel="India"></apex:selectOption>
+            <apex:selectOption itemValue="SL" itemLabel="Srilanka"></apex:selectOption>
+            <apex:selectOption itemValue="Aus" itemLabel="Australia"></apex:selectOption>
+            <apex:selectOption itemValue="Eng" itemLabel="England"></apex:selectOption>
+        </apex:selectList>
+        <apex:commandButton value="Show" action="{!show}"/>
+        <apex:selectRadio >
+            <apex:selectOption itemValue="Ind" itemLabel="India"></apex:selectOption>
+            <apex:selectOption itemValue="SL" itemLabel="Srilanka"></apex:selectOption>
+            <apex:selectOption itemValue="Aus" itemLabel="Australia"></apex:selectOption>
+            <apex:selectOption itemValue="Eng" itemLabel="England"></apex:selectOption>
+        </apex:selectradio>
+        <apex:selectCheckboxes >
+            <apex:selectOption itemValue="Ind" itemLabel="India"></apex:selectOption>
+            <apex:selectOption itemValue="SL" itemLabel="Srilanka"></apex:selectOption>
+            <apex:selectOption itemValue="Aus" itemLabel="Australia"></apex:selectOption>
+            <apex:selectOption itemValue="Eng" itemLabel="England"></apex:selectOption>
+        </apex:selectCheckboxes> 
+        
+        You have selected <apex:outputLabel id="ol" style="color:green">{!displaytext}</apex:outputLabel>
+    </apex:form>
+</apex:page>

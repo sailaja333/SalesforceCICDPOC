@@ -1,0 +1,26 @@
+<apex:page controller="remotecls" id="pg">
+<script>
+    function call(){
+        //alert('hi');
+        var accountId = document.getElementById('pg:fm:pb:pbs:rId').value;
+
+    Visualforce.remoting.Manager.invokeAction(
+        '{!$RemoteAction.remotecls.getData}', 
+        accountId, 
+        function(result, event){
+            //alert(result);
+            document.getElementById('pg:fm:pb:pbs:rName').value = result;
+        }, 
+        {escape: true}
+    );    
+    }
+</script>
+    <apex:form id="fm">
+        <apex:pageblock id="pb">
+            <apex:pageBlockSection id="pbs">
+                <apex:inputText label="Record Id" id="rId" onblur="call()" />
+                <apex:inputText label="Account Name" id="rName" />
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

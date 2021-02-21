@@ -1,0 +1,15 @@
+<apex:page controller="CreateAccountController">
+  <apex:form >
+      <apex:pageBlock >
+          <apex:pageBlockSection >
+              <apex:inputText value="{!names}" label="Name"/>
+              <apex:inputText value="{!phones}" label="Phone"/>
+          </apex:pageBlockSection>
+          <apex:pageBlockButtons >
+              <apex:commandButton value="Save" action="{!saveRecord}"/>
+              <apex:commandButton value="Save & New" action="{!savenewrecord}"/>
+              <apex:commandButton value="Cancel" action="{!cancel}"/>
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

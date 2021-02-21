@@ -1,0 +1,28 @@
+<apex:page controller="ajaxcls">
+<script>
+    function changeName1(){
+        changeName();
+    }
+</script>
+   <apex:form id="form">
+    <apex:actionFunction name="changeName" action="{!change}" reRender="lb"/>   
+    <apex:actionFunction name="unchangeName" action="{!unchange}" reRender="lb"/>   
+    <b> Action Function Demo</b><br/>
+    <apex:outputLabel id="lb" onmouseover="changeName()" onmouseout="unchangeName()">{!name}</apex:outputlabel><br/>
+    <apex:commandButton value="Change" action="{!change}" reRender="lb"/> 
+    <apex:commandButton value="UnChange" action="{!unchange}" reRender="lb"/>  
+    <br/>
+    <br/>
+    <b> Action Support Demo</b> <br/>   
+    <apex:outputLabel id="lb1">{!name}
+        <apex:actionSupport event="onmouseover" action="{!change}" rerender="lb1"/>
+        <apex:actionSupport event="onmouseout" action="{!unchange}" rerender="lb1"/>
+    </apex:outputLabel> 
+    <br/>
+    <br/>
+    <b> Action Poller Demo </b> <br/>
+    <apex:outputLabel id="lb2" >{!NOW()}</apex:outputLabel>
+    <apex:actionPoller interval="5"  rerender="lb2" />
+      
+   </apex:form> 
+</apex:page>

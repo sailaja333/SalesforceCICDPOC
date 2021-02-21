@@ -1,0 +1,19 @@
+<apex:page sidebar="false" standardController="Contact" recordSetVar="cons" >
+    <apex:form >
+        <apex:pageblock >
+            <apex:pageblockTable value="{!cons}" var="c" id="pbt">
+                <apex:column headerValue="Name" >
+                    <apex:commandLink value="{!c.name}" reRender="out">
+                        <apex:param value="{!c.Id}" name="e" />
+                    </apex:CommandLInk>
+                </apex:column>
+                <apex:column headerValue="Phone" value="{!c.phone}"/>
+                <apex:column headerValue="Fax" value="{!c.fax}"/>
+            </apex:pageblockTable>
+            
+            <apex:outputPanel id="out">
+            <apex:detail subject="{!$CurrentPage.parameters.e}" relatedList="false" inlineEdit="true" />
+            </apex:outputPanel>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

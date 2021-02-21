@@ -1,0 +1,21 @@
+<apex:page id="page">
+<style>
+    .labelcls{
+        color:red;
+        font-size:24px;
+        font-family:Tahoma;
+    }
+</style>
+<script>
+    function change(){
+        //alert('hi');
+        document.getElementById('page:form:ol').className = 'labelcls';
+    }
+    function unchange(){
+        document.getElementById('page:form:ol').className = '';
+    }    
+</script>
+    <apex:form id="form">
+        <apex:outputLabel id="ol" onmouseover="change()" onmouseout="unchange()" >Salesforce Training</apex:outputLabel>
+    </apex:form>
+</apex:page>
